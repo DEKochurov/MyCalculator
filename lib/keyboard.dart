@@ -10,11 +10,11 @@ class MyKeyBoard extends StatelessWidget {
 
 
   final Function allClear;
-  final Function numberInsert;
+  final Function buttonInsert;
   final Function backSpace;
-  final Function operatorInsert;
+  final Function showAnswer;
 
-  const MyKeyBoard(this.allClear, this.numberInsert, this.backSpace, this.operatorInsert, {super.key});
+  const MyKeyBoard(this.allClear, this.buttonInsert, this.backSpace, this.showAnswer, {super.key});
 
   @override
   Widget build(BuildContext context){
@@ -28,39 +28,38 @@ class MyKeyBoard extends StatelessWidget {
                   children: [
                     Expanded( flex: 1, child:MyButton(16, allClear)),
                     Expanded( flex: 1, child: MyButton(15, backSpace)),
-                    // Expanded( flex: 2, child: MyButton(14, null)),
+                    Expanded( flex: 1, child: MyButton(14, showAnswer)),
                   ],),),
             Expanded(flex: 1,child:
                 Row(
                   children: [
-                    Expanded( flex: 1, child:MyButton(1, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(2, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(3, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(10, operatorInsert)),
+                    Expanded( flex: 1, child:MyButton(1, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(2, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(3, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(10, buttonInsert)),
                   ],),),
             Expanded(flex:1,child:
                 Row(
                   children: [
-                    Expanded( flex: 1, child:MyButton(4, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(5, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(6, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(11, operatorInsert)),
+                    Expanded( flex: 1, child:MyButton(4, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(5, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(6, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(11, buttonInsert)),
                   ],),),
             Expanded(flex:1,child:
                 Row(
                   children: [
-                    Expanded( flex: 1, child:MyButton(7, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(8, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(9, numberInsert)),
-                    Expanded( flex: 1, child:MyButton(12, operatorInsert)),
+                    Expanded( flex: 1, child:MyButton(7, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(8, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(9, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(12, buttonInsert)),
                   ],),),
             Expanded(flex:1,child:
                 Row(
                   children: [
-                    // Expanded( flex: 1, child:MyButton(17, null)),
-                    Expanded( flex: 1, child:MyButton(0, numberInsert)),
-                    // Expanded( flex: 1, child:MyButton(18, null)),
-                    Expanded( flex: 1, child:MyButton(13, operatorInsert)),
+                    Expanded( flex: 1, child:MyButton(17, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(0, buttonInsert)),
+                    Expanded( flex: 1, child:MyButton(13, buttonInsert)),
                   ],)),
           ],
         )

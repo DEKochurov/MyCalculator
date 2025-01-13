@@ -1,6 +1,7 @@
 import 'package:my_new_calculator/keyboard.dart';
 import 'package:my_new_calculator/screen.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage>{
 
 
 
-  void numberInsert (String value ){
+  void buttonInsert (String value ){
     setState(() {
       userInput += value;
     });
@@ -37,9 +38,14 @@ class _HomePageState extends State<HomePage>{
     });
   }
 
-  void operatorInsert (String value){
+  void showAnswer(String expression){
+    Parser p = Parser();
+    Expression exp = p.parse(userInput);
+    ContextModel contextModel = ContextModel();
+    num eval = exp.evaluate(EvaluationType.REAL, contextModel);
+    String answer = eval.toString();
     setState(() {
-      userInput += value;
+      userInput = answer;
     });
   }
 
@@ -54,7 +60,7 @@ class _HomePageState extends State<HomePage>{
       body: Column(
           children: [
             MyScreen(result, userInput),
-            MyKeyBoard(allClear, numberInsert, backSpace, operatorInsert)
+            MyKeyBoard(allClear, buttonInsert, backSpace, showAnswer)
           ]
       ),
     );
