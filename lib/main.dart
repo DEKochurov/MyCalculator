@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_new_calculator/homepage.dart';
-import 'package:my_new_calculator/logic.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.orange,
         ).copyWith(
-          primary: Colors.yellowAccent,
+          primary: Colors.orange,
         ),
       ),
       debugShowCheckedModeBanner: false,

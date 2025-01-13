@@ -1,8 +1,7 @@
 import 'package:my_new_calculator/keyboard.dart';
 import 'package:my_new_calculator/screen.dart';
 import 'package:flutter/material.dart';
-import 'package:my_new_calculator/button.dart' as button;
-import 'package:my_new_calculator/logic.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage>{
 
 
 
-  void numberInsert (String value ){
+  void buttonInsert (String value ){
     setState(() {
       userInput += value;
     });
@@ -39,6 +38,17 @@ class _HomePageState extends State<HomePage>{
     });
   }
 
+  void showAnswer(String expression){
+    Parser p = Parser();
+    Expression exp = p.parse(userInput);
+    ContextModel contextModel = ContextModel();
+    num eval = exp.evaluate(EvaluationType.REAL, contextModel);
+    String answer = eval.toString();
+    setState(() {
+      userInput = answer;
+    });
+  }
+
   @override
   Widget build (BuildContext context){
     return Scaffold(
@@ -50,7 +60,7 @@ class _HomePageState extends State<HomePage>{
       body: Column(
           children: [
             MyScreen(result, userInput),
-            MyKeyBoard(allClear, numberInsert, backSpace)
+            MyKeyBoard(allClear, buttonInsert, backSpace, showAnswer)
           ]
       ),
     );

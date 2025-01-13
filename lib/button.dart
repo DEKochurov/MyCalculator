@@ -1,4 +1,3 @@
-import 'package:my_new_calculator/logic.dart';
 import 'package:flutter/material.dart';
 
 var buttonsArray = [
@@ -19,8 +18,7 @@ var buttonsArray = [
           '=', //index 14
           '⌫', //index 15
           'AC', //index 16
-          '⏲',//index 17
-          '.',//index 18
+          '.',//index 17
 ];
 
 class MyButton extends StatelessWidget {
