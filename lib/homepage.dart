@@ -2,7 +2,6 @@ import 'package:my_new_calculator/keyboard.dart';
 import 'package:my_new_calculator/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:my_new_calculator/button.dart' as button;
-import 'package:my_new_calculator/logic.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
@@ -39,6 +38,12 @@ class _HomePageState extends State<HomePage>{
     });
   }
 
+  void operatorInsert (String value){
+    setState(() {
+      userInput += value;
+    });
+  }
+
   @override
   Widget build (BuildContext context){
     return Scaffold(
@@ -50,7 +55,7 @@ class _HomePageState extends State<HomePage>{
       body: Column(
           children: [
             MyScreen(result, userInput),
-            MyKeyBoard(allClear, numberInsert, backSpace)
+            MyKeyBoard(allClear, numberInsert, backSpace, operatorInsert)
           ]
       ),
     );

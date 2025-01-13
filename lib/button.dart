@@ -1,4 +1,3 @@
-import 'package:my_new_calculator/logic.dart';
 import 'package:flutter/material.dart';
 
 var buttonsArray = [
